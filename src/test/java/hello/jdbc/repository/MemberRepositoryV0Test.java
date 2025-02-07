@@ -1,43 +1,18 @@
 package hello.jdbc.repository;
 
-import com.zaxxer.hikari.HikariDataSource;
-import hello.jdbc.connection.ConnectionConst;
 import hello.jdbc.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.util.NoSuchElementException;
 
-import static hello.jdbc.connection.ConnectionConst.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-/**
- *  JDBC - Use DataSource, JdbcUtils
- */
-
 @Slf4j
-class MemberRepositoryV1Test {
+class MemberRepositoryV0Test {
 
-    MemberRepositoryV1 repositoryV1;
-
-    @BeforeEach
-    void beforeEach(){
-        // 기본 DriverManager - 항상 새로운 커넥션을 획득
-        // DriverManagerDataSource dataSource = new DriverManagerDataSource(URL, USERNAME, PASSWORD);
-
-        // 커넥션 풀링
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setJdbcUrl(URL);
-        dataSource.setUsername(USERNAME);
-        dataSource.setPassword(PASSWORD);
-        repositoryV1 = new MemberRepositoryV1(dataSource);
-
-    }
-
-
+    MemberRepositoryV0 repositoryV1 = new MemberRepositoryV0();
 
     @Test
     void crud(){
