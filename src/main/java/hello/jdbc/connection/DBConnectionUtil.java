@@ -16,9 +16,11 @@ public class DBConnectionUtil {
         try {
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             log.info("get connection = {}, class={}", connection, connection.getClass());
+            System.out.println("hi");
             return connection;
         } catch (SQLException e) {
             throw new IllegalStateException(e);
+
         }
     }
 }
